@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 70px;
+  z-index: 100;
+}
+.preloader span:hover{
+    margin-top: 50px;
+}
+.container .preloader {
+  animation: rotate 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+
+.all {
+  position: relative; /* để chứa lớp overlay */
+  overflow: hidden;   /* tránh tràn khi hiệu ứng chạy */
+}
+
+.preloader span {
+  --c: #f23f3f;
+  position: absolute;
+  display: block;
+  height: 64px;
+  width: 64px;
+  background: var(--c);
+  border: 1px solid var(--c);
+  border-radius: 100%;
+}
+
+.preloader span:nth-child(1) {
+  transform: translate(-28px, -28px);
+  animation: shape_1 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+
+
+
+.preloader span:nth-child(2) {
+  transform: translate(28px, -28px);
+  animation: shape_2 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+
+
+.preloader span:nth-child(3) {
+  position: relative;
+  border-radius: 0px;
+  transform: scale(0.98) rotate(-45deg);
+  animation: shape_3 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+
+
+
+.shadow {
+  position: relative;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  height: 16px;
+  width: 64px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  border: 1px solid #d9d9d9;
+  animation: shadow 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+.all{
+    margin-top: -50px;
+    width: 100%;
+    height:500px;
+    background-color: #db1bab;
+    border-bottom: 2px solid black;
+}
+.matrix-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.matrix-pattern {
+  position: relative;
+  width: 1000px;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.matrix-column {
+  position: absolute;
+  top: -100%;
+  width: 20px;
+  height: 100%;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: bold;
+  animation: fall linear infinite;
+  white-space: nowrap;
+}
+
+.matrix-column::before {
+  content: "Chắc khỏi phải chúc mãi xinh vì đó là điều đương nhiên roàiii";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    to bottom,
+    #e70b0b 0%,
+    #cc0707 5%,
+    #0ddbca 10%,
+    #0ddbca 20%,
+    #9718a8 30%,
+    #a316a8 40%,
+    #75095e 50%,
+    #cf52bf 60%,
+    #cf6aa8 70%,
+    #003300 80%,
+    rgba(218, 112, 218, 0.5) 90%,
+    transparent 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  writing-mode: vertical-lr;
+  letter-spacing: 1px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.matrix-column:nth-child(1) {
+  left: 0px;
+  animation-delay: -2.5s;
+  animation-duration: 5s;
+}
+.matrix-column:nth-child(2) {
+  left: 25px;
+  animation-delay: -3.2s;
+  animation-duration: 6s;
+}
+.matrix-column:nth-child(3) {
+  left: 50px;
+  animation-delay: -1.8s;
+  animation-duration: 6.5s;
+}
+.matrix-column:nth-child(4) {
+  left: 75px;
+  animation-delay: -2.9s;
+  animation-duration: 7.5s;
+}
+.matrix-column:nth-child(5) {
+  left: 100px;
+  animation-delay: -1.5s;
+  animation-duration: 8s;
+}
+.matrix-column:nth-child(6) {
+  left: 125px;
+  animation-delay: -3.8s;
+  animation-duration: 8.5s;
+}
+.matrix-column:nth-child(7) {
+  left: 150px;
+  animation-delay: -2.1s;
+  animation-duration: 8.8s;
+}
+.matrix-column:nth-child(8) {
+  left: 175px;
+  animation-delay: -2.7s;
+  animation-duration: 7.2s;
+}
+.matrix-column:nth-child(9) {
+  left: 200px;
+  animation-delay: -3.4s;
+  animation-duration: 7.8s;
+}
+.matrix-column:nth-child(10) {
+  left: 225px;
+  animation-delay: -1.9s;
+  animation-duration: 6.7s;
+}
+.matrix-column:nth-child(11) {
+  left: 250px;
+  animation-delay: -3.6s;
+  animation-duration: 8.2s;
+}
+.matrix-column:nth-child(12) {
+  left: 275px;
+  animation-delay: -2.3s;
+  animation-duration: 7.1s;
+}
+.matrix-column:nth-child(13) {
+  left: 300px;
+  animation-delay: -3.1s;
+  animation-duration: 7.6s;
+}
+.matrix-column:nth-child(14) {
+  left: 325px;
+  animation-delay: -2.6s;
+  animation-duration: 6.9s;
+}
+.matrix-column:nth-child(15) {
+  left: 350px;
+  animation-delay: -3.7s;
+  animation-duration: 8.1s;
+}
+.matrix-column:nth-child(16) {
+  left: 375px;
+  animation-delay: -2.8s;
+  animation-duration: 7.3s;
+}
+.matrix-column:nth-child(17) {
+  left: 400px;
+  animation-delay: -3.3s;
+  animation-duration: 7.7s;
+}
+.matrix-column:nth-child(18) {
+  left: 425px;
+  animation-delay: -2.2s;
+  animation-duration: 6.6s;
+}
+.matrix-column:nth-child(19) {
+  left: 450px;
+  animation-delay: -3.9s;
+  animation-duration: 8.3s;
+}
+.matrix-column:nth-child(20) {
+  left: 475px;
+  animation-delay: -2.4s;
+  animation-duration: 7.4s;
+}
+.matrix-column:nth-child(21) {
+  left: 500px;
+  animation-delay: -1.7s;
+  animation-duration: 6.4s;
+}
+.matrix-column:nth-child(22) {
+  left: 525px;
+  animation-delay: -3.5s;
+  animation-duration: 7.9s;
+}
+.matrix-column:nth-child(23) {
+  left: 550px;
+  animation-delay: -2s;
+  animation-duration: 8s;
+}
+.matrix-column:nth-child(24) {
+  left: 575px;
+  animation-delay: -4s;
+  animation-duration: 8.4s;
+}
+.matrix-column:nth-child(25) {
+  left: 600px;
+  animation-delay: -1.6s;
+  animation-duration: 6.3s;
+}
+.matrix-column:nth-child(26) {
+  left: 625px;
+  animation-delay: -3s;
+  animation-duration: 7.5s;
+}
+.matrix-column:nth-child(27) {
+  left: 650px;
+  animation-delay: -3.8s;
+  animation-duration: 8s;
+}
+.matrix-column:nth-child(28) {
+  left: 675px;
+  animation-delay: -2.5s;
+  animation-duration: 6.8s;
+}
+.matrix-column:nth-child(29) {
+  left: 700px;
+  animation-delay: -3.2s;
+  animation-duration: 7.6s;
+}
+.matrix-column:nth-child(30) {
+  left: 725px;
+  animation-delay: -2.7s;
+  animation-duration: 7.2s;
+}
+.matrix-column:nth-child(31) {
+  left: 750px;
+  animation-delay: -1.8s;
+  animation-duration: 6.7s;
+}
+.matrix-column:nth-child(32) {
+  left: 775px;
+  animation-delay: -3.6s;
+  animation-duration: 8.1s;
+}
+.matrix-column:nth-child(33) {
+  left: 800px;
+  animation-delay: -2.1s;
+  animation-duration: 7.1s;
+}
+.matrix-column:nth-child(34) {
+  left: 825px;
+  animation-delay: -3.4s;
+  animation-duration: 7.7s;
+}
+.matrix-column:nth-child(35) {
+  left: 850px;
+  animation-delay: -2.8s;
+  animation-duration: 6.9s;
+}
+.matrix-column:nth-child(36) {
+  left: 875px;
+  animation-delay: -3.7s;
+  animation-duration: 8.2s;
+}
+.matrix-column:nth-child(37) {
+  left: 900px;
+  animation-delay: -2.3s;
+  animation-duration: 7.3s;
+}
+.matrix-column:nth-child(38) {
+  left: 925px;
+  animation-delay: -1.9s;
+  animation-duration: 6.5s;
+}
+.matrix-column:nth-child(39) {
+  left: 950px;
+  animation-delay: -3.5s;
+  animation-duration: 7.8s;
+}
+.matrix-column:nth-child(40) {
+  left: 975px;
+  animation-delay: -2.6s;
+  animation-duration: 7.4s;
+}
+
+.matrix-column:nth-child(odd)::before {
+  content: "Chúc Mừng 20/10 người đẹpppp";
+}
+
+.matrix-column:nth-child(even)::before {
+  content: "Pé Xíu 20/10 Tuyệt với heeeeee";
+}
+
+.matrix-column:nth-child(3n)::before {
+  content: "Chắc khỏi phải chúc mãi xinh vì đó là điều đương nhiên roàiii";
+}
+
+.matrix-column:nth-child(4n)::before {
+  content: "Hỏi gương kia ngựa trên trời ai xin hơn Pé Xíuuuuuuu";
+}
+
+.matrix-column:nth-child(5n)::before {
+  content: "Chúc 20/10 có được Quốc Thạnh nheeee=)))))))))))";
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .matrix-column {
+    font-size: 24px;
+    line-height: 16px;
+    width: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .matrix-column {
+    font-size: 24px;
+    line-height: 14px;
+    width: 15px;
+  }
+}
+
+.content-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.content-center h1 {
+  font-size: 36px;
+  color: #e70b0b;
+  margin-bottom: 20px;
+  transition: all 0.6s ease;
+}
+
+.content-center button {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff1493;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.content-center button:hover {
+  background-color: #ff55bb;
+}
+
+    </style>
+</head>
+<body>
+    <div class="all">
+        <div class="matrix-container">
+  <div class="matrix-pattern">
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+  </div>
+  <div class="matrix-pattern">
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+  </div>
+  <div class="content-center">
+  <h1 id="changeText">Chúc Mừng 20/10 heeee</h1>
+  <button id="changeBtn"> Tiếp tục <3</button>
+</div>
+  <div class="matrix-pattern">
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+  </div>
+  <div class="matrix-pattern">
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+  </div>
+  <div class="matrix-pattern">
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+    <div class="matrix-column"></div>
+  </div>
+</div>
+    </div>
+    <div class="container">
+  <div class="preloader">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="shadow"></div>
+</div>
+</body>
+<script>
+  // --- GIỮ TOÀN BỘ CODE GỐC CỦA BẠN ---
+  const preloader = document.querySelector('.preloader');
+  const allDiv = document.querySelector('.all');
+  const matrixContainer = document.querySelector('.matrix-container');
+
+  matrixContainer.style.opacity = '0';
+  matrixContainer.style.transition = 'opacity 1s ease';
+  matrixContainer.style.pointerEvents = 'none';
+  allDiv.style.overflow = 'hidden';
+
+  const pinkOverlay = document.createElement('div');
+  pinkOverlay.style.position = 'absolute';
+  pinkOverlay.style.top = '0';
+  pinkOverlay.style.left = '0';
+  pinkOverlay.style.width = '100%';
+  pinkOverlay.style.height = '100%';
+  pinkOverlay.style.backgroundColor = '#db1bab';
+  pinkOverlay.style.transition = 'transform 1.5s ease-in-out';
+  pinkOverlay.style.zIndex = '5';
+  allDiv.appendChild(pinkOverlay);
+
+  preloader.addEventListener('click', () => {
+    pinkOverlay.style.transform = 'translateY(-100%)';
+    setTimeout(() => {
+      allDiv.style.backgroundColor = 'white';
+      matrixContainer.style.opacity = '1';
+      matrixContainer.style.pointerEvents = 'auto';
+      pinkOverlay.remove();
+    }, 1500);
+  });
+
+  // --- PHẦN NỘI DUNG TƯƠNG TÁC ---
+  const changeText = document.getElementById("changeText");
+  const changeBtn = document.getElementById("changeBtn");
+
+  const texts = [
+    "Chúc Mừng 20/10 heeee",
+    "Chắc khỏi phải chúc mãi xinh vì đó là điều đương nhiên roàiii haaaaaa",
+    "Vậy thì chúc gì đâyy??",
+    "Chúc mãi hạnh phúc, vui vẻ,... thì đại trà quáaa",
+    "Thế nên hoi không chúc mà quéooooo 🤙",
+    "20/10 hằng năm toai đều dành cả day cho Cậu thì thế nàoooo:>>"
+  ];
+  let currentIndex = 0;
+
+  changeBtn.addEventListener("click", () => {
+    currentIndex++;
+
+    // Nếu chưa đến cuối -> đổi text bình thường
+    if (currentIndex < texts.length) {
+      changeText.textContent = texts[currentIndex];
+    } 
+    // Nếu đến cuối -> hiện Yes/No
+    else {
+      changeBtn.remove();
+
+      const yesBtn = document.createElement("button");
+      yesBtn.textContent = "Yes ❤️";
+      yesBtn.style.margin = "10px";
+      yesBtn.style.padding = "10px 25px";
+      yesBtn.style.fontSize = "20px";
+      yesBtn.style.backgroundColor = "#ff4081";
+      yesBtn.style.color = "white";
+      yesBtn.style.border = "none";
+      yesBtn.style.borderRadius = "10px";
+      yesBtn.style.cursor = "pointer";
+      yesBtn.style.transition = "all 0.2s ease";
+
+      const noBtn = document.createElement("button");
+      noBtn.textContent = "No 💔";
+      noBtn.style.margin = "10px";
+      noBtn.style.padding = "10px 25px";
+      noBtn.style.fontSize = "20px";
+      noBtn.style.backgroundColor = "#555";
+      noBtn.style.color = "white";
+      noBtn.style.border = "none";
+      noBtn.style.borderRadius = "10px";
+      noBtn.style.cursor = "pointer";
+      noBtn.style.transition = "all 0.2s ease";
+
+      const contentCenter = document.querySelector(".content-center");
+      contentCenter.appendChild(yesBtn);
+      contentCenter.appendChild(noBtn);
+
+      // Sự kiện khi ấn YES
+      yesBtn.addEventListener("click", () => {
+        window.location.href = "2.html"; // ← trang muốn chuyển đến
+      });
+
+      // Kích thước ban đầu của YES
+      let yesSize = 20;
+      let yesPadding = 25;
+
+      // Sự kiện khi ấn NO → YES to dần từng lần bấm
+      noBtn.addEventListener("click", () => {
+        yesSize += 4;      // tăng cỡ chữ mỗi lần
+        yesPadding += 5;   // tăng padding theo
+        yesBtn.style.fontSize = yesSize + "px";
+        yesBtn.style.padding = "10px " + yesPadding + "px";
+      });
+    }
+  });
+</script>
+
+</html>
